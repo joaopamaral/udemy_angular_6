@@ -12,26 +12,26 @@ export class ShoppingListService {
 
   constructor() { }
 
-  getIngredients() {
-    return this.ingredients.slice();
-  }
+  // getIngredients() {
+  //   return this.ingredients.slice();
+  // }
 
   getIngredient(index: number) {
     return this.ingredients[index];
   }
 
-  addIngredient(ingredient: Ingredient) {
-    this.ingredients.push(ingredient);
-    this.ingredientsChanged.next(this.getIngredients());
-  }
+  // addIngredient(ingredient: Ingredient) {
+  //   this.ingredients.push(ingredient);
+  //   this.ingredientsChanged.next(this.getIngredients());
+  // }
 
-  addIngredients(ingredients: Ingredient[]) {
-    // for (let ingredient of ingredients) {
-    //   this.addIngredient(ingredient);
-    // }
-    this.ingredients.push(...ingredients);
-    this.ingredientsChanged.next(this.getIngredients());
-  }
+  // addIngredients(ingredients: Ingredient[]) {
+  //   // for (let ingredient of ingredients) {
+  //   //   this.addIngredient(ingredient);
+  //   // }
+  //   this.ingredients.push(...ingredients);
+  //   this.ingredientsChanged.next(this.getIngredients());
+  // }
 
   updateIngredient(index: number, newIngredient: Ingredient) {
     this.ingredients[index] = newIngredient;

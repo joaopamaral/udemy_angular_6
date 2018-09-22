@@ -3,6 +3,7 @@ import {Recipe} from './recipe.model';
 import {Ingredient} from '../shared/ingredient.model';
 import {ShoppingListService} from '../shopping-list/shopping-list.service';
 import {Subject} from 'rxjs';
+import * as ShoppingListActions from '../shopping-list/store/shopping-list.actions';
 
 @Injectable()
 export class RecipeService {
@@ -28,6 +29,11 @@ export class RecipeService {
 
   constructor(private shoppingListService: ShoppingListService) {}
 
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
   getRecipes() {
     return this.recipes.slice();
   }
@@ -36,9 +42,9 @@ export class RecipeService {
     return this.recipes[id];
   }
 
-  addIngredientsToShoppingList(ingredients: Ingredient[]) {
-    this.shoppingListService.addIngredients(ingredients);
-  }
+  // addIngredientsToShoppingList(ingredients: Ingredient[]) {
+  //   this.shoppingListService.addIngredients(ingredients);
+  // }
 
   addRecipe(recipe: Recipe) {
     this.recipes.push(recipe);
